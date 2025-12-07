@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.yummy.formula.processing</string>
+	</array>
+	<key>BIGMODEL_API_KEY_VALUE</key>
+	<string>$(BIGMODEL_API_KEY_VALUE)</string>
+	<key>MODEL_NAME</key>
+	<string>$(MODEL_NAME)</string>
+	<key>HOW_TO_URL</key>
+	<string>https://ai.feishu.cn/wiki/QwDXw0tDdip0bpkTWoNcixf7n2e?from=from_copylink</string>
+</dict>
+</plist>

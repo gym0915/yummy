@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "B4BE9198-D849-4E66-AD33-9A2E51D56D40",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:yummy.xcodeproj",
+        "identifier" : "AA01E1842E72FCCE00D555B2",
+        "name" : "yummyTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "5F445E29-9D7A-42ED-9EA3-41B21F8F3482",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:yummy.xcodeproj",
+      "identifier" : "AAD27BA32E03E647008A72C1",
+      "name" : "yummy"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:yummy.xcodeproj",
+        "identifier" : "AA01E1842E72FCCE00D555B2",
+        "name" : "yummyTests"
+      }
+    }
+  ],
+  "version" : 1
+}

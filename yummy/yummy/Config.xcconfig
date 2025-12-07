@@ -1,0 +1,13 @@
+//
+//  Config.xcconfig
+//  yummy
+//
+//  Created by steve on 2025/7/1.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+
+BIGMODEL_API_KEY_VALUE = 8946f316485cc465bd418d136c0c2f62.AxhSJAxchC05mffW
+MODEL_NAME = glm-4-flash-250414
