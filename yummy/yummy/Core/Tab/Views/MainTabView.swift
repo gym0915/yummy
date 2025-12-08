@@ -23,6 +23,7 @@ struct MainTabView: View {
     @State private var navigationPath: [NavigationPage] = []
     
     @Environment(\.scenePhase) private var scenePhase
+    @Namespace private var scrollView
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -30,11 +31,12 @@ struct MainTabView: View {
             
             // 底层：主要内容区域
             NavigationStack(path: $navigationPath) {
-                HomeView(navigationPath: $navigationPath)
+                HomeView(navigationPath: $navigationPath, zoomNamespace: scrollView)
                     .navigationDestination(for: NavigationPage.self) { page in
                         switch page {
                         case .detail(let formula):
                             DetailView(formulaId: formula.id, navigationPath: $navigationPath)
+                                .navigationTransition(.zoom(sourceID: formula.id, in: scrollView))
                         case .cuisine(let focusId):
                             CuisineView(navigationPath: $navigationPath, focusId: focusId)
                         case .camera(let formula):
@@ -42,16 +44,17 @@ struct MainTabView: View {
                         case .photoLibrary(let formula):
                             PhotoLibraryView(formula: formula, navigationPath: $navigationPath)
                         }
+                        
                     }
             }
             
             // 上层：透明背景 + 浮动按钮
-            if navigationPath.isEmpty {
-                bottomNavigationBar
-                    .sheet(isPresented: $showTidyViewSheet) {
-                        TidyView()
-                    }
-            }
+            bottomNavigationBar
+                .sheet(isPresented: $showTidyViewSheet) {
+                    TidyView()
+                }
+                .opacity(navigationPath.isEmpty ? 1 : 0)
+                .allowsHitTesting(navigationPath.isEmpty)
         }
     }
     
@@ -110,4 +113,3 @@ struct MainTabView: View {
     MainTabView()
         .environmentObject(HomeViewModel())
 }
-

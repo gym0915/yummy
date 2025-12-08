@@ -13,6 +13,7 @@ import SafariServices
 struct HomeView: View {
     @EnvironmentObject var homeViewModel: HomeViewModel
     @Binding var navigationPath: [NavigationPage]
+    let zoomNamespace: Namespace.ID
     
     // 跳转状态管理
     @State private var selectedFormula: Formula?
@@ -145,6 +146,7 @@ struct HomeView: View {
     // MARK: - Formula Card View
     private func formulaCardView(for formula: Formula) -> some View {
         HomeCardView(formula: formula)
+            .matchedTransitionSource(id: formula.id, in: zoomNamespace)
             .transition(.scale.combined(with: .opacity))
             .onTapGesture {
                 handleCardTap(for: formula)
@@ -305,6 +307,12 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(navigationPath: .constant([]))
-        .environmentObject(HomeViewModel())
+    struct HomeViewPreviewContainer: View {
+        @Namespace var ns
+        var body: some View {
+            HomeView(navigationPath: .constant([]), zoomNamespace: ns)
+                .environmentObject(HomeViewModel())
+        }
+    }
+    return HomeViewPreviewContainer()
 }
